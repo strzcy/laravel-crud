@@ -2,10 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Student;
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
 {
+    public function index(){
+        $students = Student::orderBy('created_at', 'desc')->paginate(5);
+        return view('students.index', compact('students'));
+    }
     public function create(){
         return view('students.create');
     }
@@ -15,6 +20,8 @@ class StudentController extends Controller
             'email' => 'required|email|unique:students,email',
             'phone' => 'required|digits:10|unique:students,phone',
         ]);
-        dd('ok');
+        // dd('ok');
+        Student::create($request->all());
+        return back()->with('success','Student added successfully');
     }
 }

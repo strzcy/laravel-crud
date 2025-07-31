@@ -7,6 +7,13 @@
     <div class="container mt-4">
         <div class="row">
             <div class="col-md-6 offset-3">
+            @if(session('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Success!</strong> {{ session('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            @endif
+        
                 <div class="card bg-dark text-white mt-4">
                     <div class="card-body border border-light rounded">
                         <form action="{{ route('students.store')}}" method="POST">
