@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<body style="background-color:#212529;">
+<div style="background-color:#212529; min-height:100vh;">
     
     <h3 style="text-align:center;">Create Student</h3>
     <div class="container mt-4">
@@ -49,5 +49,5 @@
         </div>
     </div>
     </div>
-</body>
+</div>
 @endsection

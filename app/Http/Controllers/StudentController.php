@@ -22,6 +22,6 @@ class StudentController extends Controller
         ]);
         // dd('ok');
         Student::create($request->all());
-        return back()->with('success','Student added successfully');
+        return redirect()->route('students.index')->with('success','Student added successfully');
     }
 }
