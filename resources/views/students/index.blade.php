@@ -5,7 +5,7 @@
     <div class="container pt-4">
         <h2 class="mb-4 text-white">Student List</h2>
         <a href="{{ route('students.create')}}" class="btn btn-outline-info mb-3">Add Student</a>
-        @if(session('success'))
+            @if(session('success'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 <strong>Success!</strong> {{ session('success') }}
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -31,7 +31,7 @@
                     <td>{{$student->email}}</td>
                     <td>{{$student->phone}}</td>
                     <td>
-                        <a href="" class="btn btn-outline-warning">View</a>
+                        <a href="{{ route('students.show', $student->id) }}" class="btn btn-outline-warning">View</a>
                         <a href="" class="btn btn-outline-info">Edit</a>
                         <a href="" class="btn btn-outline-danger">Delete</a>
                     </td>
@@ -43,5 +43,7 @@
             </tbody>
         </table>
     </div>
+
+    
 </div>
 @endsection
