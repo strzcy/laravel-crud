@@ -11,4 +11,5 @@ Route::get('/home', function () {
 
 // ini student routes, yg bakal display ygy
 Route::get('/students/create', [StudentController::class, 'create'])->name('students.create');
+Route::post('/students', [StudentController::class, 'store'])->name('students.store');
 

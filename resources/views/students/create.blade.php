@@ -1,39 +1,46 @@
 @extends('layouts.app')
 
 @section('content')
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Form Gelap</title>
-</head>
-<body style="background-color: #1e1e1e; color: #ffffff; font-family: Arial, sans-serif;">
-
-  <form style="max-width: 400px; margin: 50px auto; padding: 20px; border: 1px solid #444; border-radius: 6px; background-color: #2a2a2a;">
+<body style="background-color:#212529;">
     
-    <p style="margin-bottom: 15px;">
-      <label for="name" style="display: block; margin-bottom: 5px;">Name</label>
-      <input type="text" id="name" name="name" style="width: 100%; padding: 8px; border: 1px solid #666; border-radius: 4px; background-color: #1e1e1e; color: white;">
-    </p>
-
-    <p style="margin-bottom: 15px;">
-      <label for="email" style="display: block; margin-bottom: 5px;">Email</label>
-      <input type="email" id="email" name="email" style="width: 100%; padding: 8px; border: 1px solid #666; border-radius: 4px; background-color: #1e1e1e; color: white;">
-    </p>
-
-    <p style="margin-bottom: 15px;">
-      <label for="phone" style="display: block; margin-bottom: 5px;">Phone</label>
-      <input type="tel" id="phone" name="phone" style="width: 100%; padding: 8px; border: 1px solid #666; border-radius: 4px; background-color: #1e1e1e; color: white;">
-    </p>
-
-    <p style="margin-top: 10px;">
-      <button type="submit" style="padding: 6px 12px; background-color: #1e1e1e; color: #7ef27e; border: 1px solid #7ef27e; border-radius: 4px; cursor: pointer;">
-        Save
-      </button>
-    </p>
-
-  </form>
-
+    <h3 style="text-align:center;">Create Student</h3>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-6 offset-3">
+                <div class="card bg-dark text-white mt-4">
+                    <div class="card-body border border-light rounded">
+                        <form action="{{ route('students.store')}}" method="POST">
+                            @csrf
+                            <div class="mb-3">
+                                <label for="" class="form-label">Name</label>
+                                <input type="text" name="name" class="form-control bg-dark text-white @error('name') is-invalid @enderror"  value="{{old('name')}}">
+                                @error('name')
+                                <div class="invalid-feedback">{{$message}}</div>
+                                @enderror
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="" class="form-label">Email</label>
+                                <input type="email" name="email" class="form-control bg-dark text-white @error('email') is-invalid @enderror" value="{{old('email')}}">
+                                @error('email')
+                                <div class="invalid-feedback">{{$message}}</div>
+                            @enderror
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="" class="form-label">Phone</label>
+                            <input type="text" name="phone" class="form-control bg-dark text-white @error('phone') is-invalid @enderror" value="{{old('phone')}}">
+                            @error('phone')
+                            <div class="invalid-feedback">{{$message}}</div>
+                            @enderror
+                        </div>
+                        <button class="btn btn-outline-success text-white">Save</button>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
 </body>
-</html>
 @endsection
