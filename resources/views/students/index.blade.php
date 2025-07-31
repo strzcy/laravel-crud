@@ -33,7 +33,6 @@
                     <td>
                         <a href="{{ route('students.show', $student->id) }}" class="btn btn-outline-warning">View</a>
                         <a href="{{ route('students.edit', $student->id) }}" class="btn btn-outline-info">Edit</a>
-                        <a href="" class="btn btn-outline-danger">Delete</a>
                         <form action="{{ route('students.destroy', $student->id) }}" method="POST" class="d-inline">
                             @csrf
                             @method('DELETE')
