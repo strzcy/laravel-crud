@@ -14,7 +14,7 @@
         <table class="table table-bordered table-dark table-striped">
             <thead>
                 <tr>
-                    <th>#</th>
+                    <!-- <th>#</th> -->
                     <th>Name</th>
                     <th>Email</th>
                     <th>Phone</th>
@@ -26,7 +26,7 @@
 
                 
                 <tr>
-                    <td>{{$student->id}}</td>
+                    <!-- <td>{{$student->id}}</td> -->
                     <td>{{$student->name}}</td>
                     <td>{{$student->email}}</td>
                     <td>{{$student->phone}}</td>
