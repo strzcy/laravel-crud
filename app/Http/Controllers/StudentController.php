@@ -49,8 +49,8 @@ class StudentController extends Controller
         ],
     ]);
         // dd('ok');
-            Student::update($request->all());
-            return redirect()->route('students.index')->with('success','Student updated successfully');
+        $student->update($request->all()); // ✅ Benar
+        return redirect()->route('students.index')->with('success','Student updated successfully');
 
     }
 
