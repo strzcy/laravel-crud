@@ -1,6 +1,17 @@
 <?php
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
+
+// login logot
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [AuthController::class, 'login']);
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::middleware('auth')->group(function () {
+    Route::resource('students', StudentController::class);
+});
+
 
 Route::get('/', function () {
     return view('welcome');
